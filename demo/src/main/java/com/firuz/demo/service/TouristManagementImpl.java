@@ -30,7 +30,7 @@ public class TouristManagementImpl implements TouristManagement {
                 .orElseThrow(() -> new TouristNotFoundException("Tourist with  id " + id + " not found"));
     }
 
-    // Fetching list of tourists from database; sdsdsd
+    // Fetching list of tourists from database; sdsdsdsdsd
     @Override
     public List<Tourist> fetchAllTourist() {
         List<Tourist> list = touristRepository.findAll();
