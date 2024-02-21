@@ -41,7 +41,7 @@ public class TouristManagementImpl implements TouristManagement {
     @Override
     public String updateTouristData(Tourist tourist) {
 
-        Optional optional = touristRepository.findById(tourist.getTid());
+        Optional<Tourist> optional = touristRepository.findById(tourist.getTid());
         if (optional.isPresent()) {
             touristRepository.save(tourist);
             return "Tourist with the id " + tourist.getTid() + " is updated";

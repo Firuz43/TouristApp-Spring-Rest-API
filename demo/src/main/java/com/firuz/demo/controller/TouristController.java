@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.firuz.demo.entity.Tourist;
-import com.firuz.demo.exception.TouristNotFoundException;
 import com.firuz.demo.service.TouristManagement;
 
 @RestController
@@ -46,14 +45,9 @@ public class TouristController {
     @GetMapping("/findall")
     public ResponseEntity<?> getAllTourists() {
 
-        try {
-            List<Tourist> tourists = touristService.fetchAllTourist();
+        List<Tourist> tourists = touristService.fetchAllTourist();
 
-            return new ResponseEntity<>(tourists, HttpStatus.OK);
-        } catch (TouristNotFoundException tn) {
-
-            return new ResponseEntity<>("Some problem occured fetching all records", HttpStatus.BAD_REQUEST);
-        }
+        return new ResponseEntity<>(tourists, HttpStatus.OK);
 
     }
 
