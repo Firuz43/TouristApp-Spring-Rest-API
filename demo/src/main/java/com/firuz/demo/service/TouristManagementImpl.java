@@ -23,7 +23,7 @@ public class TouristManagementImpl implements TouristManagement {
         return "Tourist data stored with id " + id;
     }
 
-    // Fetching tourist by id;
+    // Fetching tourist by id; //
     @Override
     public Tourist fetchTouristById(Integer id) {
         return touristRepository.findById(id)
