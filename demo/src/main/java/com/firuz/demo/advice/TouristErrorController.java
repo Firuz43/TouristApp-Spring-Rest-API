@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import com.firuz.demo.exception.TouristNotFoundException;
 
-//Add this annotation   
+//Add this annotation to let our controller know about this class   
 @RestControllerAdvice
 public class TouristErrorController {
 
