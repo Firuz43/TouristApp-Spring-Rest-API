@@ -1,5 +1,6 @@
 package com.firuz.demo.exception;
 
+//exception
 public class TouristNotFoundException extends RuntimeException {
 
     public TouristNotFoundException(String msg) {
