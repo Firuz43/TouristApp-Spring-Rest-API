@@ -55,4 +55,15 @@ public class Student {
         this.gpa = gpa;
     }
 
+    public Student() {
+    }
+
+    public Student(Integer sId, String firstName, String lastName, String major, Integer gpa) {
+        this.sId = sId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.major = major;
+        this.gpa = gpa;
+    }
+
 }
