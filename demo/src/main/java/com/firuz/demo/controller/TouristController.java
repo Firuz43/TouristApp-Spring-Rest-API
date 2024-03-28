@@ -35,6 +35,8 @@ public class TouristController {
 
     }
 
+
+    //finding all tourists api
     @GetMapping("/find/{id}")
     public ResponseEntity<?> getTouristById(@PathVariable("id") Integer id) {
 
