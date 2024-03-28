@@ -65,6 +65,7 @@ public class TouristManagementImpl implements TouristManagement {
         }
     }
 
+    //Throwing exception
     @Override
     public String deleteTourist(Integer id) {
         Optional<Tourist> optional = touristRepository.findById(id);
