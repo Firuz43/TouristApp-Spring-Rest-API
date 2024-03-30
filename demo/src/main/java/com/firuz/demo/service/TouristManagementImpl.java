@@ -23,7 +23,7 @@ public class TouristManagementImpl implements TouristManagement {
         return "Tourist data stored with id " + id;
     }
 
-    // Fetching tourist by id; /// foofo
+    // Fetching tourist by id; /// foofosds
     @Override
     public Tourist fetchTouristById(Integer id) {
         return touristRepository.findById(id)
@@ -36,6 +36,7 @@ public class TouristManagementImpl implements TouristManagement {
         List<Tourist> list = touristRepository.findAll();
 
         return list;
+        ///return something
     }
 
     @Override
