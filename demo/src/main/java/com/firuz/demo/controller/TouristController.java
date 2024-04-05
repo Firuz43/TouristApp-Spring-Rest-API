@@ -45,6 +45,7 @@ public class TouristController {
 
     }
 
+    //Crosigin adding
     @CrossOrigin()
     @GetMapping("/findall")
     public ResponseEntity<?> getAllTourists() {
