@@ -10,4 +10,8 @@ public interface ClientManagement {
     public Client getClient(Integer id);
 
     public List<Client> getClients();
+
+    public void deleteClient(Integer id);
+
+
 }

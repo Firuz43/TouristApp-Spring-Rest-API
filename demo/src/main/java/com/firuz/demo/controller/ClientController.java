@@ -3,6 +3,7 @@ package com.firuz.demo.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -32,6 +33,12 @@ public class ClientController {
     @GetMapping("client/findAll")
     public List<Client> getClients() {
         return clientService.getClients();
+    }
+
+
+    @DeleteMapping("client/{id}")
+    public void deleteClient(@PathVariable("id") Integer id) {
+        clientService.deleteClient(id);
     }
 
 }

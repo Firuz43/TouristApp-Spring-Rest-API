@@ -29,4 +29,9 @@ public class ClientManagemetImpl implements ClientManagement {
     public List<Client> getClients() {
         return clientRepository.findAll();
     }
+
+    @Override
+    public void deleteClient(Integer id) {
+        return clientRepository.deleteById(id);
+    }
 }
