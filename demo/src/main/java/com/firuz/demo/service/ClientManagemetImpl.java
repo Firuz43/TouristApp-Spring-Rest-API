@@ -16,5 +16,10 @@ public class ClientManagemetImpl implements ClientManagement {
     public String saveClient(Client client) {
         return "Client saved" + clientRepository.save(client);
     }
+
+    @Override
+    public Client getClient(Integer id) {
+        return clientRepository.findById(id).get();
+    }
     
 }

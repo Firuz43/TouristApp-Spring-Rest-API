@@ -48,6 +48,11 @@ public class Client {
         return "Client [id=" + id + ", name=" + name + ", budget=" + budget + "]";
     }
 
+    
+    public Client() {
+    }
 
+
+    
 
 }
