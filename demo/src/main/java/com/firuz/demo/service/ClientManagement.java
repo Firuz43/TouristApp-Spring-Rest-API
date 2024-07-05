@@ -4,4 +4,6 @@ import com.firuz.demo.entity.Client;
 
 public interface ClientManagement {
     public String saveClient(Client client);
+
+    public Client getClient(Integer id);
 }
