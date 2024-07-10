@@ -34,4 +34,10 @@ public class ClientManagemetImpl implements ClientManagement {
     public void deleteClient(Integer id) {
         clientRepository.deleteById(id);
     }
+
+
+    @Override
+    public String updateClient(Client client) {
+        
+    }
 }
