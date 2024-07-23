@@ -13,6 +13,8 @@ import com.firuz.demo.repository.TouristRepoi;
 @Service
 public class TouristManagementImpl implements TouristManagement {
 
+
+    // We will inject our repository class in the implementation class
     @Autowired
     private TouristRepoi touristRepository;
 
