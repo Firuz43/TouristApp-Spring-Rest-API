@@ -53,7 +53,7 @@ public class TouristManagementImpl implements TouristManagement {
         }
     }
 
-    // updating tourist by id//// this 
+    // updating tourist by id//// this ///
     @Override
     public String updateTouristDataById(Integer id, Double budget) {
 
