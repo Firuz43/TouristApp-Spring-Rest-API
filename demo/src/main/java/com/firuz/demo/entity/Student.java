@@ -1,5 +1,7 @@
 package com.firuz.demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -10,12 +12,19 @@ public class Student {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
+    @JsonProperty("id")
     private Integer sid;
     private String name;
     private String city;
     
     
+    public Student(Integer sid, String name, String city) {
+        this.sid = sid;
+        this.name = name;
+        this.city = city;
+    }
+    public Student() {
+    }
     public Integer getSid() {
         return sid;
     }
@@ -28,30 +37,23 @@ public class Student {
     public void setName(String name) {
         this.name = name;
     }
+    
+    
     public String getCity() {
         return city;
     }
+    
+    
+    
+    
     public void setCity(String city) {
         this.city = city;
     }
-    
-    
+
+
     @Override
     public String toString() {
         return "Student [sid=" + sid + ", name=" + name + ", city=" + city + "]";
-    }
-    
-    
-    
-    
-    public Student(Integer sid, String name, String city) {
-        this.sid = sid;
-        this.name = name;
-        this.city = city;
-    }
-
-
-    public Student() {
     }
 
     
