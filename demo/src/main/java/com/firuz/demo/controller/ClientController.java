@@ -43,8 +43,8 @@ public class ClientController {
     }
     
 
-    @PutMapping("update")
-    public String updateClient(@RequestBody Client client) {
-        return clientService.updateClient(client);
-    }
+    // @PutMapping("update")
+    // public String updateClient(@RequestBody Client client) {
+    //     return clientService.updateClient(client);
+    // }
 }

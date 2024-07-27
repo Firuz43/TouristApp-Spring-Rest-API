@@ -13,7 +13,7 @@ public interface ClientManagement {
 
     public void deleteClient(Integer id);
 
-    public String updateClient(Client client);
+    // public String updateClient(Client client);
 
 
 }
