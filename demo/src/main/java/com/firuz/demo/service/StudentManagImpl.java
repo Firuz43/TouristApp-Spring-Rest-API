@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.firuz.demo.entity.Student;
+import com.firuz.demo.exception.TouristNotFoundException;
 import com.firuz.demo.repository.StudentRepo;
 
 @Service
@@ -30,7 +31,9 @@ public class StudentManagImpl implements StudentManag {
         // Optional optional = studentRepository.findById(id);
         // Object touristObject = optional.get();
         // return touristObject;
-        
+
+        return studentRepository.findById(id).orElseThrow(() -> new TouristNotFoundException("Tourist with id " + id + " Not found"));
+
 
     }
 
