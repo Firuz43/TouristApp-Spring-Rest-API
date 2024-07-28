@@ -22,7 +22,6 @@ public class StudentManagImpl implements StudentManag {
 
         Integer id = studentRepository.save(student).getSid();
 
-        // TODO Auto-generated method stub
         return "Student data stored with id " + id;
     }
 
@@ -39,8 +38,9 @@ public class StudentManagImpl implements StudentManag {
 
     @Override
     public List<Student> getAllStudents() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getAllStudents'");
+        List<Student> students = studentRepository.findAll();
+
+        return students;
     }
 
     
