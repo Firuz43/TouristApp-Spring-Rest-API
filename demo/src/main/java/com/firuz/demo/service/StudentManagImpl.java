@@ -21,7 +21,7 @@ public class StudentManagImpl implements StudentManag {
         Integer id = studentRepository.save(student).getSid();
 
         // TODO Auto-generated method stub
-        return "Student data stored";
+        return "Student data stored with id " + id;
     }
 
     @Override
