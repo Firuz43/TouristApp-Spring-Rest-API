@@ -28,7 +28,7 @@ public class StudentManagImpl implements StudentManag {
     public Student getStudentById(Integer id) {
         // Optional optional = studentRepository.findById(id);
         // Object touristObject = optional.get();
-        // return touristObject;
+        // return touristObject; //
 
         return studentRepository.findById(id).orElseThrow(() -> new TouristNotFoundException("Tourist with id " + id + " Not found"));
 
