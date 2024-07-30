@@ -24,6 +24,8 @@ public class StudentManagImpl implements StudentManag {
         return "Student data stored with id " + id;
     }
 
+    //find by id
+
     @Override
     public Student getStudentById(Integer id) {
         // Optional optional = studentRepository.findById(id);
