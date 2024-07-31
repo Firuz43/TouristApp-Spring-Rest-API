@@ -1,7 +1,7 @@
 package com.firuz.demo.entity;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -11,10 +11,11 @@ import jakarta.persistence.Id;
 public class Student {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @JsonProperty("id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer sid;
+    @Column(name="name")
     private String name;
+    @Column(name="city")
     private String city;
     
     
