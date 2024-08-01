@@ -41,6 +41,9 @@ public class StudentController {
 
 
     public ResponseEntity<?> getStudentById(@PathVariable("id") Integer id) {
-        
+
+        Student student = studentService.getStudentById(id);
+
+        return new ResponseEntity<>(student, HttpStatus.OK);
     }
 }
