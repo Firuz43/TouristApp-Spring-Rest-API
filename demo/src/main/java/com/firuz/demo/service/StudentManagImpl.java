@@ -44,5 +44,18 @@ public class StudentManagImpl implements StudentManag {
         return students;
     }
 
+    @Override
+    public String updateStudent(Student student) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+
+    @Override
+    public String updateStudentById(Integer id) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
     
 }

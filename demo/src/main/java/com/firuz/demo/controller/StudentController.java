@@ -63,6 +63,5 @@ public class StudentController {
         }catch(TouristNotFoundException tn) {
             return new ResponseEntity<>(tn.getMessage(), HttpStatus.BAD_REQUEST);
         }
- 
     }
 }

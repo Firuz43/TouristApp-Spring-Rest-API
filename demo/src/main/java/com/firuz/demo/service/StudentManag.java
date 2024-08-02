@@ -11,4 +11,8 @@ public interface StudentManag {
 
     public List<Student> getAllStudents();
 
+    public String updateStudent(Student student);
+
+    public String updateStudentById(Integer id);
+
 }
