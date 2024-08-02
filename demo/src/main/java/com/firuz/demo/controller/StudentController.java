@@ -25,18 +25,29 @@ public class StudentController {
 
     @PostMapping("/save")
     public ResponseEntity<String> saveStudent(@RequestBody Student student) {
-        String msg = studentService.registerStudent(student);
 
-        return new ResponseEntity<>(msg, HttpStatus.OK);
+        try {
+            String msg = studentService.registerStudent(student);
+
+            return new ResponseEntity<>(msg, HttpStatus.OK);
+        }catch(Exception e) {
+            return new ResponseEntity<>("Some problem in saving student data", HttpStatus.INTERNAL_SERVER_ERROR);
+        } 
+  
     }
 
 
     @GetMapping("/findall")
     public ResponseEntity<?> findAll() {
         
-        List<Student> students = studentService.getAllStudents();
+        try {
+            List<Student> students = studentService.getAllStudents();
 
-        return new ResponseEntity<>(students, HttpStatus.OK);
+            return new ResponseEntity<>(students, HttpStatus.OK);
+        }catch(Exception e) {
+            return new ResponseEntity<>("Some problem in getting all students data", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
         
     }
 
