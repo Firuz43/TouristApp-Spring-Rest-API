@@ -1,5 +1,6 @@
 package com.firuz.demo.controller;
 
+import java.rmi.StubNotFoundException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,10 +9,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.firuz.demo.entity.Student;
+import com.firuz.demo.exception.StudentNotFoundException;
 import com.firuz.demo.exception.TouristNotFoundException;
 import com.firuz.demo.service.StudentManag;
 
@@ -60,8 +63,26 @@ public class StudentController {
             Student student = studentService.getStudentById(id);
 
             return new ResponseEntity<>(student, HttpStatus.OK);
-        }catch(TouristNotFoundException tn) {
-            return new ResponseEntity<>(tn.getMessage(), HttpStatus.BAD_REQUEST);
+
+        }catch(StudentNotFoundException sn) {
+
+            return new ResponseEntity<>(sn.getMessage(), HttpStatus.BAD_REQUEST);
+
         }
+    }
+
+
+
+    @PutMapping("/update")
+    public ResponseEntity<?> updateStudentData(Student student) {
+
+        try{
+            String status = studentService.updateStudent(student);
+
+            return new ResponseEntity<>(status, HttpStatus.OK);
+        }catch(StudentNotFoundException sn) {
+            return new ResponseEntity<>(sn.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+   
     }
 }
