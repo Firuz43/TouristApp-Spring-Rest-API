@@ -1,11 +1,13 @@
 package com.firuz.demo.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.firuz.demo.entity.Student;
+import com.firuz.demo.exception.StudentNotFoundException;
 import com.firuz.demo.exception.TouristNotFoundException;
 import com.firuz.demo.repository.StudentRepo;
 
@@ -48,8 +50,14 @@ public class StudentManagImpl implements StudentManag {
     @Override
     public String updateStudent(Student student) {
         Integer id = student.getSid();
-        studentRepository.findById(id);
-        return null;
+        Optional<Student> optional = studentRepository.findById(id);
+        if(optional.isPresent()){
+            studentRepository.save(student);
+            return "Student with the id " + student.getSid() + " is updated.";
+        }else {
+            throw new StudentNotFoundException("Student with the id " + student.getSid() + " is not found to update");
+        }
+        
     }
 
 
