@@ -44,9 +44,11 @@ public class StudentManagImpl implements StudentManag {
         return students;
     }
 
+    // retrieving data by id 
     @Override
     public String updateStudent(Student student) {
-        // TODO Auto-generated method stub
+        Integer id = student.getSid();
+        studentRepository.findById(id);
         return null;
     }
 
