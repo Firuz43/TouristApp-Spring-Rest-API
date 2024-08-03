@@ -74,7 +74,7 @@ public class StudentController {
 
 
     @PutMapping("/update")
-    public ResponseEntity<?> updateStudentData(Student student) {
+    public ResponseEntity<?> updateStudentData(@RequestBody Student student) {
 
         try{
             String status = studentService.updateStudent(student);
