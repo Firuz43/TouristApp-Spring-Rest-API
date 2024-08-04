@@ -93,6 +93,12 @@ public class StudentController {
     @PatchMapping("/update/{id}/{name}")
     public ResponseEntity<String> updateStudentName(@PathVariable("id")Integer id, 
                                                     @PathVariable("name") String name){
-        return null;
+
+        try {
+            String status = studentService.updateStudentById(id, name);
+            return new ResponseEntity<>(status, HttpStatus.OK);
+        }catch(StudentNotFoundException sn) {
+            return new ResponseEntity<String>(sn.getMessage(), HttpStatus.BAD_REQUEST);
+        }
     }
 }
