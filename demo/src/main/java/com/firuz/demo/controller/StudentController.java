@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -74,7 +75,7 @@ public class StudentController {
 
 
     @PutMapping("/update")
-    public ResponseEntity<?> updateStudentData(@RequestBody Student student) {
+    public ResponseEntity<String> updateStudentData(@RequestBody Student student) {
 
         try{
             String status = studentService.updateStudent(student);
@@ -84,5 +85,14 @@ public class StudentController {
             return new ResponseEntity<>(sn.getMessage(), HttpStatus.BAD_REQUEST);
         }
    
+    }
+
+
+
+
+    @PatchMapping("/update/{id}/{name}")
+    public ResponseEntity<String> updateStudentName(@PathVariable("id")Integer id, 
+                                                    @PathVariable("name") String name){
+        return null;
     }
 }

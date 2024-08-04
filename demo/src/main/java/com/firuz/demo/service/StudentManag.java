@@ -13,6 +13,6 @@ public interface StudentManag {
 
     public String updateStudent(Student student);
 
-    public String updateStudentById(Integer id);
+    public String updateStudentById(Integer id, String name);
 
 }

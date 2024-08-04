@@ -62,10 +62,16 @@ public class StudentManagImpl implements StudentManag {
 
 
     @Override
-    public String updateStudentById(Integer id) {
-        // TODO Auto-generated method stub
-        return null;
+    public String updateStudentById(Integer id, String name) {
+        Optional<Student> optional = studentRepository.findById(id);
+        if(optional.isPresent()) {
+            Student student = optional.get(); // it will give us back entire student object;
+            student.setName(name);            //then we will update name that we get from pathvariable with help of setter
+            studentRepository.save(student);  // after we updated the name we just save back the student object
+            return "Tourist with id " + student.getSid() + " is updated";
+        }else {
+            throw new StudentNotFoundException("Student with the id " + id + " is not found to update");
+        }
     }
 
-    
 }
