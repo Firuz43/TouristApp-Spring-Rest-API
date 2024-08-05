@@ -46,7 +46,7 @@ public class StudentManagImpl implements StudentManag {
         return students;
     }
 
-    // retrieving data by id 
+    // updating all student data
     @Override
     public String updateStudent(Student student) {
         Integer id = student.getSid();
@@ -73,5 +73,4 @@ public class StudentManagImpl implements StudentManag {
             throw new StudentNotFoundException("Student with the id " + id + " is not found to update");
         }
     }
-
 }
