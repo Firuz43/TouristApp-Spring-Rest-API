@@ -1,6 +1,5 @@
 package com.firuz.demo.controller;
 
-import java.rmi.StubNotFoundException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.firuz.demo.entity.Student;
 import com.firuz.demo.exception.StudentNotFoundException;
-import com.firuz.demo.exception.TouristNotFoundException;
 import com.firuz.demo.service.StudentManag;
 
 
