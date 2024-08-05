@@ -72,6 +72,7 @@ public class StudentController {
 
 
 
+    // ss
     @PutMapping("/update")
     public ResponseEntity<String> updateStudentData(@RequestBody Student student) {
 
