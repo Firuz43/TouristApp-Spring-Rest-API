@@ -103,6 +103,8 @@ public class StudentController {
     }
 
 
+    //deleting api
+
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deleteStudent(@PathVariable("id") Integer id) {
         try {
