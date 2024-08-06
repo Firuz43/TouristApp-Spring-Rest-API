@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -95,6 +96,17 @@ public class StudentController {
 
         try {
             String status = studentService.updateStudentById(id, name);
+            return new ResponseEntity<>(status, HttpStatus.OK);
+        }catch(StudentNotFoundException sn) {
+            return new ResponseEntity<String>(sn.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+    }
+
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<String> deleteStudent(@PathVariable("id") Integer id) {
+        try {
+            String status = studentService.deleteStudent(id);
             return new ResponseEntity<>(status, HttpStatus.OK);
         }catch(StudentNotFoundException sn) {
             return new ResponseEntity<String>(sn.getMessage(), HttpStatus.BAD_REQUEST);
