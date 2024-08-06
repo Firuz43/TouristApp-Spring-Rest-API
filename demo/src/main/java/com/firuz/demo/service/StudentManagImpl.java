@@ -79,7 +79,7 @@ public class StudentManagImpl implements StudentManag {
         Optional<Student> optional = studentRepository.findById(id);
 
         if(optional.isPresent()) {
-            Student student = optional.get();  //
+            Student student = optional.get();  //optional.get() - will give us student object back
 
             studentRepository.delete(student);
         }
