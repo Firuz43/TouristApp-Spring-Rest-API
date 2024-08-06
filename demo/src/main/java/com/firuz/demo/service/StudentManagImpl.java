@@ -73,4 +73,17 @@ public class StudentManagImpl implements StudentManag {
             throw new StudentNotFoundException("Student with the id " + id + " is not found to update");
         }
     }
+
+    @Override
+    public String deleteStudent(Integer id) {
+        Optional<Student> optional = studentRepository.findById(id);
+
+        if(optional.isPresent()) {
+            Student student = optional.get();  //
+
+            studentRepository.delete(student);
+        }
+
+        return "";
+    }
 }
