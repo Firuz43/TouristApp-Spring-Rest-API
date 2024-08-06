@@ -29,13 +29,9 @@ public class StudentController {
     @PostMapping("/save")
     public ResponseEntity<String> saveStudent(@RequestBody Student student) {
 
-        try {
-            String msg = studentService.registerStudent(student);
+        String msg = studentService.registerStudent(student);
 
-            return new ResponseEntity<>(msg, HttpStatus.OK);
-        }catch(Exception e) {
-            return new ResponseEntity<>("Some problem in saving student data", HttpStatus.INTERNAL_SERVER_ERROR);
-        } 
+        return new ResponseEntity<>(msg, HttpStatus.OK);
   
     }
 
