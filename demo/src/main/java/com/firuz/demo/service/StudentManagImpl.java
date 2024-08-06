@@ -82,8 +82,12 @@ public class StudentManagImpl implements StudentManag {
             Student student = optional.get();  //optional.get() - will give us student object back
 
             studentRepository.delete(student);
+
+            return "The student with the id " + id + " is successfully deleted";
+        }else {
+            throw new StudentNotFoundException("Student with the id " + id + " is not found to delete");
         }
 
-        return "";
+        
     }
 }
