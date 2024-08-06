@@ -15,4 +15,6 @@ public interface StudentManag {
 
     public String updateStudentById(Integer id, String name);
 
+    public String deleteStudent(Integer id);
+
 }
