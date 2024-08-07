@@ -69,7 +69,7 @@ public class StudentController {
 
 
 
-    // ss
+    // sssss
     @PutMapping("/update")
     public ResponseEntity<String> updateStudentData(@RequestBody Student student) {
 
