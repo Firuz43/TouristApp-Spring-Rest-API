@@ -7,14 +7,16 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import com.firuz.demo.exception.StudentNotFoundException;
+
 @RestControllerAdvice
 public class StudentErrorController {
     
 
-    @ExceptionHandler(Exception.class)
-    public ResponseEntity<?> handleExceptionsGlobally(Exception e) {
+    @ExceptionHandler(StudentNotFoundException.class)
+    public ResponseEntity<?> handleExceptionsForStudent(StudentNotFoundException e) {
         ErrorDetails error = new ErrorDetails("404 not found", e.getMessage(), LocalDateTime.now());
 
-        return new ResponseEntity<ErrorDetails>(error, HttpStatus.INTERNAL_SERVER_ERROR);
+        return new ResponseEntity<ErrorDetails>(error, HttpStatus.BAD_REQUEST);
     }
 }
