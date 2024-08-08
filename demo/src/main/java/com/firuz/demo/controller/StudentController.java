@@ -39,15 +39,10 @@ public class StudentController {
     @GetMapping("/findall")
     public ResponseEntity<?> findAll() {
         
-        try {
-            List<Student> students = studentService.getAllStudents();
+        List<Student> students = studentService.getAllStudents();
 
-            return new ResponseEntity<>(students, HttpStatus.OK);
-        }catch(Exception e) {
-            return new ResponseEntity<>("Some problem in getting all students data", HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+        return new ResponseEntity<>(students, HttpStatus.OK);
 
-        
     }
 
 
@@ -55,16 +50,12 @@ public class StudentController {
     @GetMapping("findById/{id}")
     public ResponseEntity<?> getStudentById(@PathVariable("id") Integer id) {
 
-        try{
-            Student student = studentService.getStudentById(id);
 
-            return new ResponseEntity<>(student, HttpStatus.OK);
+        Student student = studentService.getStudentById(id);
 
-        }catch(StudentNotFoundException sn) {
+        return new ResponseEntity<>(student, HttpStatus.OK);
 
-            return new ResponseEntity<>(sn.getMessage(), HttpStatus.BAD_REQUEST);
 
-        }
     }
 
 
@@ -73,13 +64,9 @@ public class StudentController {
     @PutMapping("/update")
     public ResponseEntity<String> updateStudentData(@RequestBody Student student) {
 
-        try{
-            String status = studentService.updateStudent(student);
+        String status = studentService.updateStudent(student);
 
-            return new ResponseEntity<>(status, HttpStatus.OK);
-        }catch(StudentNotFoundException sn) {
-            return new ResponseEntity<>(sn.getMessage(), HttpStatus.BAD_REQUEST);
-        }
+        return new ResponseEntity<>(status, HttpStatus.OK);
    
     }
 
@@ -90,12 +77,9 @@ public class StudentController {
     public ResponseEntity<String> updateStudentName(@PathVariable("id")Integer id, 
                                                     @PathVariable("name") String name){
 
-        try {
-            String status = studentService.updateStudentById(id, name);
-            return new ResponseEntity<>(status, HttpStatus.OK);
-        }catch(StudentNotFoundException sn) {
-            return new ResponseEntity<String>(sn.getMessage(), HttpStatus.BAD_REQUEST);
-        }
+        String status = studentService.updateStudentById(id, name);
+        return new ResponseEntity<>(status, HttpStatus.OK);
+
     }
 
 
@@ -103,11 +87,9 @@ public class StudentController {
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deleteStudent(@PathVariable("id") Integer id) {
-        try {
-            String status = studentService.deleteStudent(id);
-            return new ResponseEntity<>(status, HttpStatus.OK);
-        }catch(StudentNotFoundException sn) {
-            return new ResponseEntity<String>(sn.getMessage(), HttpStatus.BAD_REQUEST);
-        }
+
+        String status = studentService.deleteStudent(id);
+        return new ResponseEntity<>(status, HttpStatus.OK);
+
     }
 }
