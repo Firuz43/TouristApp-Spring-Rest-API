@@ -15,6 +15,8 @@ public class StudentErrorController {
 
     @ExceptionHandler(StudentNotFoundException.class)
     public ResponseEntity<?> handleExceptionsForStudent(StudentNotFoundException e) {
+
+        System.out.println("Advice StudentNotFoundException");
         ErrorDetails error = new ErrorDetails("404 not found", e.getMessage(), LocalDateTime.now());
 
         return new ResponseEntity<ErrorDetails>(error, HttpStatus.BAD_REQUEST);
