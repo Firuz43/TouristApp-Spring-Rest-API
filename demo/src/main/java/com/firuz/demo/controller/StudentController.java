@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.firuz.demo.entity.Student;
-import com.firuz.demo.exception.StudentNotFoundException;
 import com.firuz.demo.service.StudentManag;
 
 
