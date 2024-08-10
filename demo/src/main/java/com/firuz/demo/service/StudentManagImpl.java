@@ -41,6 +41,7 @@ public class StudentManagImpl implements StudentManag {
 
     @Override
     public List<Student> getAllStudents() {
+        
         List<Student> students = studentRepository.findAll();
 
         return students;

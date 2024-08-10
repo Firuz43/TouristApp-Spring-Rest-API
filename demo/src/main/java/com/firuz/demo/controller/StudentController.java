@@ -29,12 +29,18 @@ public class StudentController {
     public ResponseEntity<String> saveStudent(@RequestBody Student student) {
 
         String msg = studentService.registerStudent(student);
-
         return new ResponseEntity<>(msg, HttpStatus.OK);
   
     }
 
 
+    @GetMapping("findById/{id}")
+    public ResponseEntity<?> getStudentById(@PathVariable("id") Integer id) {
+        Student student = studentService.getStudentById(id);
+        return new ResponseEntity<>(student, HttpStatus.OK);
+
+    }
+    
     @GetMapping("/findall")
     public ResponseEntity<?> findAll() {
         
@@ -43,21 +49,6 @@ public class StudentController {
         return new ResponseEntity<>(students, HttpStatus.OK);
 
     }
-
-
-
-    @GetMapping("findById/{id}")
-    public ResponseEntity<?> getStudentById(@PathVariable("id") Integer id) {
-
-
-        Student student = studentService.getStudentById(id);
-
-        return new ResponseEntity<>(student, HttpStatus.OK);
-
-
-    }
-
-
 
     // sssss
     @PutMapping("/update")
