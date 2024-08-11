@@ -62,6 +62,7 @@ public class StudentManagImpl implements StudentManag {
     }
 
 
+    //The updating only name in student data
     @Override
     public String updateStudentById(Integer id, String name) {
         Optional<Student> optional = studentRepository.findById(id);
