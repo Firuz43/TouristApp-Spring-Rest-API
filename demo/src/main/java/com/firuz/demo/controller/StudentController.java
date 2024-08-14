@@ -62,7 +62,6 @@ public class StudentController {
 
 
 
-
     @PatchMapping("/update/{id}/{name}")
     public ResponseEntity<String> updateStudentName(@PathVariable("id")Integer id, 
                                                     @PathVariable("name") String name){
